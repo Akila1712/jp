@@ -134,12 +134,13 @@ body {
   }
 
   .template-container {
+     margin-top: 30%;
     width: 100%;
     max-width: 390px; /* real mobile width */
   }
 
   .paper-content {
-    top: 6%;
+    top: 8%;
     left: 7%;
     width: 86%;
     height: 60%;
@@ -179,4 +180,5 @@ body {
     font-size: 12px;
   }
 }
+
 
