@@ -1,6 +1,12 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+}
+
+/* BODY */
 body {
   margin: 0;
-  background: #1e4e79; /* blue background */
+  background: #1e4e79;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,104 +14,170 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Template wrapper */
+/* TEMPLATE WRAPPER */
 .template-container {
   position: relative;
-  width: 390px; /* mobile width */
+  width: 500px;
+  max-width: 100%;
 }
 
-/* Template image */
+/* TEMPLATE IMAGE */
 .template-img {
   width: 100%;
+  height: auto;
   display: block;
 }
 
-/* FORM INSIDE YELLOW AREA */
+/* FORM AREA (YELLOW PAPER CONTENT) */
 .paper-content {
   position: absolute;
   top: 8%;
   left: 10%;
   width: 80%;
   height: 64%;
+  padding: 10px;
   background: transparent;
-  padding: 6px;
 
-  /* IMPORTANT FIXES */
   overflow-y: auto;
   overflow-x: hidden;
-  scrollbar-width: none;       /* Firefox */
+
+  scrollbar-width: none;
 }
 .paper-content::-webkit-scrollbar {
-  display: none;               /* Chrome */
+  display: none;
 }
 
-/* Text */
+/* HEADINGS */
 .paper-content h4 {
   text-align: center;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 22px;
   color: #1f2937;
   margin-bottom: 2px;
 }
 
 .paper-content .small {
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
   color: #374151;
   margin-bottom: 4px;
 }
 
 .paper-content .intro {
   text-align: center;
-  font-size: 12.5px;
+  font-size: 12px;
   color: #4b5563;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-/* Inputs */
+/* FORM INPUTS */
 .form-control,
 .form-select {
   font-size: 13px;
-  border-radius: 10px;
+  border-radius: 8px;
   margin-bottom: 8px;
-  padding: 8px 10px;
+  padding: 7px 10px;
 }
 
-/* Checkbox / Radio FIX (not oversized) */
+/* CHECKBOX & RADIO FIX */
 .form-check {
   margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
+
 .form-check-input {
   width: 14px;
   height: 14px;
-  margin-top: 4px;
-}
-.form-check-label {
-  font-size: 13px;
+  margin: 0;
 }
 
-/* Steps */
+.form-check-label {
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+/* MULTI STEP FORM */
 .form-step {
   display: none;
 }
-
 .form-step.active {
   display: block;
 }
 
-/* Buttons */
-.btn {
-  border-radius: 10px;
-  font-size: 14px;
-  padding: 8px 0;
+/* Availability inline style (match image) */
+.availability-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
 }
 
-/* Success */
+.availability-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.availability-item input[type="radio"] {
+  width: 14px;
+  height: 14px;
+}
+
+
+/* BUTTONS */
+.btn {
+  border-radius: 8px;
+  font-size: 14px;
+  padding: 7px 0;
+}
+
+/* SUCCESS MESSAGE */
 .success-msg {
   background: #dcfce7;
   color: #166534;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 8px;
   text-align: center;
   font-size: 14px;
+}
+
+/* MOBILE FIX */
+@media (max-width: 576px) {
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: none;          /* remove blue */
+    padding: 0;
+    align-items: stretch;      /* IMPORTANT */
+  }
+
+  .template-container {
+    width: 100%;
+    height: 100vh;             /* FULL HEIGHT */
+  }
+
+  .template-img {
+    width: 100%;
+    height: 100vh;             /* image full height */
+    object-fit: cover;         /* no stretch */
+  }
+
+  .paper-content {
+    height: 66vh;              /* scroll only inside paper */
+  }
+
+    .availability-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+
 }
