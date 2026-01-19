@@ -10,22 +10,17 @@
 <body>
 
 <div class="template-container">
-
-  <!-- TEMPLATE IMAGE -->
   <img src="images/paper-bg2.jpeg" class="template-img" alt="Template">
 
-  <!-- FORM CONTENT INSIDE YELLOW AREA -->
   <div class="paper-content">
 
     <h4>Trainer Job Openings</h4>
     <p class="small">Rajapalayam & Srivilliputhur</p>
-    <p class="intro">
-      We are hiring passionate trainers to shape future learners.
-    </p>
+    <p class="intro">We are hiring passionate trainers to shape future learners.</p>
 
     <form id="trainerForm">
 
-      <!-- SECTION 1 -->
+      <!-- STEP 1 -->
       <div class="form-step active">
         <h6>Personal Details</h6>
         <input type="text" class="form-control" placeholder="Full Name *" required>
@@ -36,59 +31,63 @@
         <button type="button" class="btn btn-primary w-100 next-btn">Next →</button>
       </div>
 
-      <!-- SECTION 2 -->
+      <!-- STEP 2 -->
       <div class="form-step">
         <h6>Job Details</h6>
 
         <label class="form-label fw-semibold">Applying For *</label>
-
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" name="trainer[]" id="prog" value="Programming Trainer">
-  <label class="form-check-label" for="prog">Programming Trainer</label>
-</div>
-
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" name="trainer[]" id="robotics" value="Robotics Trainer">
-  <label class="form-check-label" for="robotics">Robotics Trainer</label>
-</div>
-
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" name="trainer[]" id="abacus" value="Abacus Trainer">
-  <label class="form-check-label" for="abacus">Abacus Trainer</label>
-</div>
-
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" name="trainer[]" id="tally" value="Tally Trainer">
-  <label class="form-check-label" for="tally">Tally Trainer</label>
-</div>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="trainer[]" id="prog">
+              <label class="form-check-label" for="prog">Programming</label>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="robotics">
+              <label class="form-check-label" for="robotics">Robotics</label>
+            </div>
+          </div>
+          <div class="col-6 mt-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="abacus">
+              <label class="form-check-label" for="abacus">Abacus</label>
+            </div>
+          </div>
+          <div class="col-6 mt-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="tally">
+              <label class="form-check-label" for="tally">Tally</label>
+            </div>
+          </div>
+        </div>
 
         <label class="form-label fw-semibold mt-3">Preferred Location *</label>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="location" id="rajapalayam" required>
+              <label class="form-check-label" for="rajapalayam">Rajapalayam</label>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="location" id="srivilliputhur">
+              <label class="form-check-label" for="srivilliputhur">Srivilliputhur</label>
+            </div>
+          </div>
+        </div>
 
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="location" id="rajapalayam" value="Rajapalayam" required>
-  <label class="form-check-label" for="rajapalayam">
-    Rajapalayam
-  </label>
-</div>
-
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="location" id="srivilliputhur" value="Srivilliputhur">
-  <label class="form-check-label" for="srivilliputhur">
-    Srivilliputhur
-  </label>
-</div>
-
-
-        <div class="d-flex gap-2">
+        <div class="d-flex gap-2 mt-3">
           <button type="button" class="btn btn-outline-secondary w-50 back-btn">← Back</button>
           <button type="button" class="btn btn-primary w-50 next-btn">Next →</button>
         </div>
       </div>
 
-      <!-- SECTION 3 -->
+      <!-- STEP 3 -->
       <div class="form-step">
         <h6>Professional Details</h6>
-
         <input type="text" class="form-control" placeholder="Qualification *" required>
 
         <select class="form-select mt-2" required>
@@ -101,20 +100,19 @@
 
         <textarea class="form-control mt-2" rows="2" placeholder="Skills *" required></textarea>
 
-        <div class="d-flex gap-2">
+        <div class="d-flex gap-2 mt-3">
           <button type="button" class="btn btn-outline-secondary w-50 back-btn">← Back</button>
           <button type="button" class="btn btn-primary w-50 next-btn">Next →</button>
         </div>
       </div>
 
-      <!-- SECTION 4 -->
+      <!-- STEP 4 -->
       <div class="form-step">
         <h6>Upload Documents</h6>
-
         <input type="file" class="form-control" required>
         <input type="file" class="form-control mt-2" required>
 
-        <div class="d-flex gap-2">
+        <div class="d-flex gap-2 mt-3">
           <button type="button" class="btn btn-outline-secondary w-50 back-btn">← Back</button>
           <button type="submit" class="btn btn-success w-50">Submit</button>
         </div>
@@ -122,7 +120,6 @@
 
     </form>
 
-    <!-- SUCCESS MESSAGE -->
     <p id="successMsg" class="success-msg d-none">
       ✅ Thank you for applying! Our team will contact you.
     </p>

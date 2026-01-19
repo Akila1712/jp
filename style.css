@@ -1,18 +1,17 @@
-/* DEFAULT (Desktop / Large screens) */
 body {
   margin: 0;
-  background: #1e4e79; /* desktop only */
+  background: #1e4e79; /* blue background */
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Template wrapper */
 .template-container {
   position: relative;
-  width: 490px;
-  max-width: 100%;
+  width: 390px; /* mobile width */
 }
 
 /* Template image */
@@ -21,33 +20,44 @@ body {
   display: block;
 }
 
-/* FORM INSIDE IMAGE */
+/* FORM INSIDE YELLOW AREA */
 .paper-content {
   position: absolute;
   top: 8%;
   left: 10%;
   width: 80%;
-  height: 60%;
+  height: 64%;
   background: transparent;
-  padding: 8px;
+  padding: 6px;
+
+  /* IMPORTANT FIXES */
   overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;       /* Firefox */
+}
+.paper-content::-webkit-scrollbar {
+  display: none;               /* Chrome */
 }
 
 /* Text */
 .paper-content h4 {
   text-align: center;
   font-weight: 700;
+  font-size: 16px;
   color: #1f2937;
+  margin-bottom: 2px;
 }
 
 .paper-content .small {
   text-align: center;
+  font-size: 12px;
   color: #374151;
+  margin-bottom: 4px;
 }
 
 .paper-content .intro {
   text-align: center;
-  font-size: 13px;
+  font-size: 12.5px;
   color: #4b5563;
   margin-bottom: 10px;
 }
@@ -55,17 +65,39 @@ body {
 /* Inputs */
 .form-control,
 .form-select {
-  font-size: 14px;
+  font-size: 13px;
   border-radius: 10px;
   margin-bottom: 8px;
+  padding: 8px 10px;
+}
+
+/* Checkbox / Radio FIX (not oversized) */
+.form-check {
+  margin-bottom: 4px;
+}
+.form-check-input {
+  width: 14px;
+  height: 14px;
+  margin-top: 4px;
+}
+.form-check-label {
+  font-size: 13px;
 }
 
 /* Steps */
 .form-step {
   display: none;
 }
+
 .form-step.active {
   display: block;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 8px 0;
 }
 
 /* Success */
@@ -76,31 +108,4 @@ body {
   border-radius: 10px;
   text-align: center;
   font-size: 14px;
-}
-
-/* 🔥 MOBILE FULL HEIGHT FIX */
-@media (max-width: 576px) {
-
-  body {
-    margin: 0;
-    background: none;
-  }
-
-  .template-container {
-    width: 100vw;
-    height: 100vh;        /* FULL mobile height */
-  }
-
-  .template-img {
-    width: 100%;
-    height: 100vh;       /* 🔥 FULL HEIGHT IMAGE */
-    object-fit: cover;   /* maintain ratio */
-  }
-
-  .paper-content {
-    top: 7%;
-    left: 8%;
-    width: 84%;
-    height: 65%;
-  }
 }
