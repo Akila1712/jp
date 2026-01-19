@@ -106,26 +106,6 @@ body {
   display: block;
 }
 
-/* Availability inline style (match image) */
-.availability-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 6px;
-}
-
-.availability-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  cursor: pointer;
-}
-
-.availability-item input[type="radio"] {
-  width: 14px;
-  height: 14px;
-}
 
 
 /* BUTTONS */
@@ -172,7 +152,7 @@ body {
 
   
   .paper-content {
-    top: 6%;
+    top: 10%;
     height: auto;          /* 🔥 IMPORTANT */
     max-height: 80vh;      /* limit only */
     padding-bottom: 12px; /* small safe space */
