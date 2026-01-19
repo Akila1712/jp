@@ -170,14 +170,16 @@ body {
     object-fit: cover;         /* no stretch */
   }
 
+  
   .paper-content {
-    height: 66vh;              /* scroll only inside paper */
+    top: 6%;
+    height: auto;          /* 🔥 IMPORTANT */
+    max-height: 80vh;      /* limit only */
+    padding-bottom: 12px; /* small safe space */
   }
 
-    .availability-row {
-    flex-wrap: wrap;
-    gap: 8px;
+    .btn {
+    margin-bottom: 0;
   }
-
 
 }
