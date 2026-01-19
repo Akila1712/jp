@@ -125,18 +125,30 @@ body {
   font-size: 14px;
 }
 
-/* MOBILE FIX */
+/* MOBILE – PERFECT CENTER FIX */
 @media (max-width: 576px) {
 
   body {
-    align-items: flex-start;
-    padding: 10px 0;
+    margin: 0;
+    background: #1e4e79;
+    display: flex;
+    justify-content: center;   /* horizontal center */
+    align-items: center;       /* ⭐ vertical center */
+    min-height: 100vh;
   }
 
   .template-container {
-    margin-top: 30%;
+    position: relative;
     width: 100%;
-    max-width: 390px; /* real mobile width */
+    max-width: 390px;
+    margin: 0 auto;
+  }
+
+  .template-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
   }
 
   .paper-content {
@@ -146,37 +158,5 @@ body {
     height: 60%;
     padding: 8px;
   }
-
-  .paper-content h4 {
-    font-size: 18px;
-  }
-
-  .paper-content .small {
-    font-size: 13px;
-  }
-
-  .paper-content .intro {
-    font-size: 11px;
-  }
-
-  .form-control,
-  .form-select {
-    font-size: 12px;
-    padding: 6px 8px;
-  }
-
-  .btn {
-    font-size: 13px;
-    padding: 6px 0;
-  }
-
-  /* Checkbox & radio size fix (you mentioned this issue) */
-  .form-check-input {
-    width: 13px;
-    height: 13px;
-  }
-
-  .form-check-label {
-    font-size: 12px;
-  }
 }
+
