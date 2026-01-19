@@ -134,7 +134,7 @@ body {
   }
 
   .template-container {
-     margin-top: 30%;
+    margin-top: 30%;
     width: 100%;
     max-width: 390px; /* real mobile width */
   }
@@ -180,5 +180,3 @@ body {
     font-size: 12px;
   }
 }
-
-
