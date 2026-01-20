@@ -17,7 +17,7 @@ body {
 /* TEMPLATE WRAPPER */
 .template-container {
   position: relative;
-  width: 500px;
+  width: 450px;
   max-width: 100%;
   
 }
@@ -116,14 +116,66 @@ right: 10%;
   padding: 7px 0;
 }
 
-/* SUCCESS MESSAGE */
-.success-msg {
-  background: #dcfce7;
-  color: #166534;
-  padding: 10px;
-  border-radius: 8px;
-  text-align: center;
+/* ===== SUCCESS POPUP CARD ===== */
+
+.success-card{
+  border-radius: 12px;
+  padding-top: 40px;
+  padding-bottom: 24px;
+  border: none;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+/* Check icon wrapper */
+.check-wrapper{
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Green circle */
+.check-circle{
+  width: 64px;
+  height: 64px;
+  background: #6fd34a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+/* Body text */
+.success-body{
+  padding: 10px 30px 0;
+}
+
+.success-body h4{
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+.success-body p{
   font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+/* Button */
+.success-btn{
+  background: #6fd34a;
+  border: none;
+  padding: 8px 0;
+  width: 70%;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.success-btn:hover{
+  background: #63c43f;
 }
 
 

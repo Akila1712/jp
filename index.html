@@ -18,15 +18,17 @@
     <p class="small">Rajapalayam & Srivilliputhur</p>
     <p class="intro">We are hiring passionate trainers to shape future learners.</p>
 
-    <form id="trainerForm">
+    <!-- 🔴 FIXED FORM -->
+<form id="trainerForm" action="submit.php" method="POST" enctype="multipart/form-data">
 
       <!-- STEP 1 -->
       <div class="form-step active">
         <h6>Personal Details</h6>
-        <input type="text" class="form-control" placeholder="Full Name *" required>
-        <input type="tel" class="form-control" placeholder="Mobile Number *" required>
-        <input type="email" class="form-control" placeholder="Email ID *" required>
-        <input type="text" class="form-control" placeholder="City *" required>
+
+        <input type="text" name="name" class="form-control" placeholder="Full Name *" required>
+        <input type="tel" name="mobile" class="form-control" placeholder="Mobile Number *" required>
+        <input type="email" name="email" class="form-control" placeholder="Email ID *" required>
+        <input type="text" name="city" class="form-control" placeholder="City *" required>
 
         <button type="button" class="btn btn-primary w-100 next-btn">Next →</button>
       </div>
@@ -39,26 +41,26 @@
         <div class="row">
           <div class="col-6">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="trainer[]" id="prog">
-              <label class="form-check-label" for="prog">Programming Trainer</label>
+              <input class="form-check-input" type="checkbox" name="position[]" value="Programming Trainer">
+              <label class="form-check-label">Programming Trainer</label>
             </div>
           </div>
           <div class="col-6">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="robotics">
-              <label class="form-check-label" for="robotics">Robotics Trainer</label>
+              <input class="form-check-input" type="checkbox" name="position[]" value="Robotics Trainer">
+              <label class="form-check-label">Robotics Trainer</label>
             </div>
           </div>
           <div class="col-6 mt-2">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="abacus">
-              <label class="form-check-label" for="abacus">Abacus Trainer</label>
+              <input class="form-check-input" type="checkbox" name="position[]" value="Abacus Trainer">
+              <label class="form-check-label">Abacus Trainer</label>
             </div>
           </div>
           <div class="col-6 mt-2">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="tally">
-              <label class="form-check-label" for="tally">Tally Trainer</label>
+              <input class="form-check-input" type="checkbox" name="position[]" value="Tally Trainer">
+              <label class="form-check-label">Tally Trainer</label>
             </div>
           </div>
         </div>
@@ -67,20 +69,17 @@
         <div class="row">
           <div class="col-6">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="location" id="rajapalayam" required>
-              <label class="form-check-label" for="rajapalayam">Rajapalayam</label>
+              <input class="form-check-input" type="radio" name="location" value="Rajapalayam" required>
+              <label class="form-check-label">Rajapalayam</label>
             </div>
           </div>
           <div class="col-6">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="location" id="srivilliputhur">
-              <label class="form-check-label" for="srivilliputhur">Srivilliputhur</label>
+              <input class="form-check-input" type="radio" name="location" value="Srivilliputhur">
+              <label class="form-check-label">Srivilliputhur</label>
             </div>
           </div>
         </div>
-
-        
-
 
         <div class="d-flex gap-2 mt-3">
           <button type="button" class="btn btn-outline-secondary w-50 back-btn">← Back</button>
@@ -91,9 +90,10 @@
       <!-- STEP 3 -->
       <div class="form-step">
         <h6>Professional Details</h6>
-        <input type="text" class="form-control" placeholder="Qualification *" required>
 
-        <select class="form-select mt-2" required>
+        <input type="text" name="qualification" class="form-control" placeholder="Qualification *" required>
+
+        <select class="form-select mt-2" name="experience" required>
           <option value="">Experience</option>
           <option>0 – 1 Year</option>
           <option>1 – 2 Years</option>
@@ -101,17 +101,14 @@
           <option>More than 3 Years</option>
         </select>
 
-        <textarea class="form-control mt-2" rows="2" placeholder="Skills *" required></textarea>
+        <textarea class="form-control mt-2" name="skills" rows="2" placeholder="Skills *" required></textarea>
 
-
-
-<select class="form-select" required>
-  <option value="">Select Availability</option>
-  <option value="Full Time">Full Time</option>
-  <option value="Part Time">Part Time</option>
-  <option value="Weekend">Weekend</option>
-</select>
-
+        <select class="form-select mt-2" name="availability" required>
+          <option value="">Select Availability</option>
+          <option value="Full Time">Full Time</option>
+          <option value="Part Time">Part Time</option>
+          <option value="Weekend">Weekend</option>
+        </select>
 
         <div class="d-flex gap-2 mt-3">
           <button type="button" class="btn btn-outline-secondary w-50 back-btn">← Back</button>
@@ -119,46 +116,171 @@
         </div>
       </div>
 
-     <!-- STEP 4 -->
-<div class="form-step">
-  <h6>Upload Documents</h6>
+      <!-- STEP 4 -->
+      <div class="form-step">
+        <h6>Upload Documents</h6>
 
-  <!-- Resume -->
-  <label class="form-label fw-semibold">Upload Resume *</label>
-  <input
-    type="file"
-    class="form-control"
-    name="resume"
-    accept=".pdf,.doc,.docx"
-    required
-  >
+        <label class="form-label fw-semibold">Upload Resume *</label>
+        <input type="file" class="form-control" name="resume" accept=".pdf,.doc,.docx" required>
 
-  <!-- Photo -->
-  <label class="form-label fw-semibold mt-2">Upload Photo *</label>
-  <input
-    type="file"
-    class="form-control"
-    name="photo"
-    accept="image/*"
-    required
-  >
+        <label class="form-label fw-semibold mt-2">Upload Photo *</label>
+        <input type="file" class="form-control" name="photo" accept="image/*" required>
 
-  <div class="d-flex gap-2 mt-3">
-    <button type="button" class="btn btn-outline-secondary w-50 back-btn">← Back</button>
-    <button type="submit" class="btn btn-success w-50">Submit</button>
-  </div>
-</div>
-
+        <div class="d-flex gap-2 mt-3">
+          <button type="button" class="btn btn-outline-secondary w-50 back-btn">← Back</button>
+          <button type="submit" class="btn btn-success w-50" >Submit</button>
+        </div>
+      </div>
 
     </form>
 
-    <p id="successMsg" class="success-msg d-none">
-      ✅ Thank you for applying! Our team will contact you.
-    </p>
 
   </div>
 </div>
 
-<script src="script.js"></script>
+<!-- ✅ Success Popup Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content success-card text-center">
+
+      <!-- Check Icon -->
+      <div class="check-wrapper">
+        <div class="check-circle">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+            <path d="M20 6L9 17L4 12"
+              stroke="#fff"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="success-body">
+        <h4>Application Submitted</h4>
+        <p>
+              Thank you for applying.<br>
+          Our team will contact you soon.
+        </p>
+
+        <button type="button"
+                class="btn btn-success success-btn"
+                data-bs-dismiss="modal">
+          OK
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* ---------- MULTI STEP FORM ---------- */
+  const steps = document.querySelectorAll(".form-step");
+  const form  = document.getElementById("trainerForm");
+  let currentStep = 0;
+
+  function showStep(step) {
+    steps.forEach((s, i) => {
+      s.classList.toggle("active", i === step);
+    });
+  }
+
+  showStep(currentStep);
+
+  /* ---------- NEXT BUTTON ---------- */
+  document.querySelectorAll(".next-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+
+      /* ✅ STEP 1, 3 HTML5 validation */
+      const currentInputs = steps[currentStep].querySelectorAll("input, select, textarea");
+      for (let input of currentInputs) {
+        if (!input.checkValidity()) {
+          input.reportValidity();
+          return;
+        }
+      }
+
+      /* ✅ STEP 2 checkbox validation */
+      if (currentStep === 1) {
+        const checked = document.querySelectorAll('input[name="position[]"]:checked');
+        if (checked.length === 0) {
+          alert("Please select at least one position");
+          return;
+        }
+      }
+
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    });
+  });
+
+  /* ---------- BACK BUTTON ---------- */
+  document.querySelectorAll(".back-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    });
+  });
+
+  /* ---------- AJAX SUBMIT + SUCCESS MODAL ---------- */
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // stop normal submit
+
+    const formData = new FormData(form);
+
+    fetch("submit.php", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+
+      data = data.trim();
+      console.log("Server Response:", data);
+
+      if (data === "success") {
+
+        // Show success modal
+        const successModal = new bootstrap.Modal(
+          document.getElementById("successModal")
+        );
+        successModal.show();
+
+        // Reset form + back to step 1
+        form.reset();
+        currentStep = 0;
+        showStep(currentStep);
+
+      } else if (data === "invalid_file") {
+        alert("Invalid file type uploaded");
+      } else if (data === "upload_error") {
+        alert("File upload failed");
+      } else if (data === "db_error") {
+        alert("Database error");
+      } else {
+        alert("Unexpected error: " + data);
+      }
+
+    })
+    .catch(error => {
+      console.error(error);
+      alert("Server error. Please try again.");
+    });
+  });
+
+});
+</script>
+
 </body>
 </html>
