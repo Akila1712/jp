@@ -190,6 +190,7 @@ right: 10%;
     justify-content: center;   /* horizontal center */
     align-items: center;       /* ⭐ vertical center */
     min-height: 100vh;
+    overflow: hidden;
   }
 
   .template-container {
