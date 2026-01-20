@@ -188,10 +188,9 @@ right: 10%;
     margin: 0;
     background: #1e4e79;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;   /* ❌ center illa */
-    min-height: 100dvh;        /* ✅ NEW */
-    padding: 12px 0;           /* 🔥 breathing space */
+    justify-content: center;     /* horizontal center */
+    align-items: center;         /* ✅ vertical center */
+    min-height: 100dvh;          /* ✅ real mobile height */
     overflow-x: hidden;
   }
 
