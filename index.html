@@ -64,22 +64,25 @@
             </div>
           </div>
         </div>
+        
+<label class="form-label fw-semibold mt-3">Preferred Location *</label>
+<div class="row">
+  <div class="col-6">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox"
+             name="location[]" value="Rajapalayam">
+      <label class="form-check-label">Rajapalayam</label>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox"
+             name="location[]" value="Srivilliputhur">
+      <label class="form-check-label">Srivilliputhur</label>
+    </div>
+  </div>
+</div>
 
-        <label class="form-label fw-semibold mt-3">Preferred Location *</label>
-        <div class="row">
-          <div class="col-6">
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="location" value="Rajapalayam" required>
-              <label class="form-check-label">Rajapalayam</label>
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="location" value="Srivilliputhur">
-              <label class="form-check-label">Srivilliputhur</label>
-            </div>
-          </div>
-        </div>
 
         <div class="d-flex gap-2 mt-3">
           <button type="button" class="btn btn-outline-secondary w-50 back-btn">← Back</button>
@@ -143,7 +146,6 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content success-card text-center">
 
-      <!-- Check Icon -->
       <div class="check-wrapper">
         <div class="check-circle">
           <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
@@ -156,12 +158,14 @@
         </div>
       </div>
 
-      <!-- Body -->
       <div class="success-body">
-        <h4>Application Submitted</h4>
-        <p>
-              Thank you for applying.<br>
-          Our team will contact you soon.
+        <!-- 🔹 NAME WILL COME HERE -->
+        <h4 id="successTitle"></h4>
+
+        <p id="successMessage"></p>
+
+        <p class="fw-semibold mt-2">
+          📞 Contact: <a href="tel:8056575627">8056575627</a>
         </p>
 
         <button type="button"
@@ -174,6 +178,7 @@
     </div>
   </div>
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -209,13 +214,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
       /* ✅ STEP 2 checkbox validation */
       if (currentStep === 1) {
-        const checked = document.querySelectorAll('input[name="position[]"]:checked');
-        if (checked.length === 0) {
+
+        const positionChecked = document.querySelectorAll(
+          'input[name="position[]"]:checked'
+        );
+
+        const locationChecked = document.querySelectorAll(
+          'input[name="location[]"]:checked'
+        );
+
+        if (positionChecked.length === 0) {
           alert("Please select at least one position");
+          return;
+        }
+
+        if (locationChecked.length === 0) {
+          alert("Please select at least one preferred location");
           return;
         }
       }
 
+      /* ✅ MOVE TO NEXT STEP */
       if (currentStep < steps.length - 1) {
         currentStep++;
         showStep(currentStep);
@@ -235,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ---------- AJAX SUBMIT + SUCCESS MODAL ---------- */
   form.addEventListener("submit", function (e) {
-    e.preventDefault(); // stop normal submit
+    e.preventDefault();
 
     const formData = new FormData(form);
 
@@ -247,40 +266,39 @@ document.addEventListener("DOMContentLoaded", function () {
     .then(data => {
 
       data = data.trim();
-      console.log("Server Response:", data);
 
       if (data === "success") {
 
-        // Show success modal
+        const name = form.querySelector('input[name="name"]').value;
+
+        document.getElementById("successTitle").innerHTML =
+          `Thank You, <span class="text-success">${name}</span>!`;
+
+        document.getElementById("successMessage").innerHTML =
+          `Your application has been submitted successfully.<br>
+           Our <strong>Beycan Team</strong> will contact you soon.`;
+
         const successModal = new bootstrap.Modal(
           document.getElementById("successModal")
         );
         successModal.show();
 
-        // Reset form + back to step 1
         form.reset();
         currentStep = 0;
         showStep(currentStep);
 
-      } else if (data === "invalid_file") {
-        alert("Invalid file type uploaded");
-      } else if (data === "upload_error") {
-        alert("File upload failed");
-      } else if (data === "db_error") {
-        alert("Database error");
       } else {
-        alert("Unexpected error: " + data);
+        alert("Error: " + data);
       }
-
     })
-    .catch(error => {
-      console.error(error);
+    .catch(() => {
       alert("Server error. Please try again.");
     });
   });
 
 });
 </script>
+
 
 </body>
 </html>
