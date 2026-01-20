@@ -183,14 +183,16 @@ right: 10%;
 /* MOBILE – PERFECT CENTER FIX */
 @media (max-width: 576px) {
 
+  
   body {
     margin: 0;
     background: #1e4e79;
     display: flex;
-    justify-content: center;   /* horizontal center */
-    align-items: center;       /* ⭐ vertical center */
-    min-height: 100vh;
-    overflow: hidden;
+    justify-content: center;
+    align-items: flex-start;   /* ❌ center illa */
+    min-height: 100dvh;        /* ✅ NEW */
+    padding: 12px 0;           /* 🔥 breathing space */
+    overflow-x: hidden;
   }
 
   .template-container {
@@ -209,12 +211,14 @@ right: 10%;
   }
 
   .paper-content {
-    top: 8%;
+    top: 9%;
     left: 7%;
      right: 7%;
     bottom: 16%;   /* 🔥 tweakable but stable */
     padding: 8px;
    
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .paper-content h4 {
