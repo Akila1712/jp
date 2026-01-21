@@ -7,7 +7,283 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+<style>
+  /* =========================
+   RESET
+========================= */
+* {
+  box-sizing: border-box;
+}
 
+/* =========================
+   BODY
+========================= */
+body {
+  margin: 0;
+  background: #1e4e79;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* =========================
+   TEMPLATE CONTAINER
+========================= */
+.template-container {
+  position: relative;
+  width: 450px;
+  max-width: 100%;
+}
+
+/* =========================
+   TEMPLATE IMAGE
+========================= */
+.template-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================
+   PAPER CONTENT (FORM AREA)
+========================= */
+.paper-content {
+  position: absolute;
+  top: 8%;
+  left: 10%;
+  right: 10%;
+  bottom: 20%;
+  padding: 10px;
+  background: transparent;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+.paper-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+.paper-content h4 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 22px;
+  color: #1f2937;
+  margin-bottom: 2px;
+}
+
+.paper-content .small {
+  text-align: center;
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+.paper-content .intro {
+  text-align: center;
+  font-size: 12px;
+  color: #4b5563;
+  margin-bottom: 12px;
+}
+
+/* =========================
+   FORM ELEMENTS
+========================= */
+.form-control,
+.form-select {
+  font-size: 13px;
+  border-radius: 8px;
+  padding: 7px 10px;
+  margin-bottom: 8px;
+}
+
+.form-label {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+/* =========================
+   MULTI STEP FORM
+========================= */
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+.form-step h6 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+  border-radius: 8px;
+  font-size: 14px;
+  padding: 7px 0;
+}
+
+/* =========================
+   SUCCESS MODAL
+========================= */
+#successModal .modal-dialog {
+  max-width: 360px;
+  margin: auto;
+}
+
+#successModal .modal-content {
+  position: relative;
+  border-radius: 16px;
+  border: none;
+  overflow: visible;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  animation: popupScale .3s ease;
+}
+
+@keyframes popupScale {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.check-wrapper {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.check-circle {
+  width: 72px;
+  height: 72px;
+  background: #6fd34a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.success-body {
+  padding: 32px 24px 24px;
+  text-align: center;
+}
+
+.success-body h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.success-body p {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.success-body a {
+  text-decoration: none;
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.success-btn {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  padding: 9px 0;
+  border-radius: 8px;
+  border: none;
+  background: #6fd34a;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.success-btn:hover {
+  background: #63c43f;
+}
+
+/* =========================
+   MOBILE OPTIMIZATION
+========================= */
+@media (max-width: 576px) {
+
+  body {
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+  }
+
+  .template-container {
+    max-width: 390px;
+  }
+
+  .paper-content {
+    top: 9%;
+    left: 7%;
+    right: 7%;
+    bottom: 15%;
+    padding: 6px;
+  }
+
+  /* 🔥 Bigger fonts */
+  .paper-content h4 {
+    font-size: 20px;
+  }
+
+  .paper-content .small {
+    font-size: 14px;
+  }
+
+  .paper-content .intro {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .form-step h6 {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .form-control,
+  .form-select {
+    font-size: 14px;
+    padding: 6px 8px;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  .form-label {
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 6px 0;
+  }
+}
+
+</style>
 <body>
 
 <div class="template-container">
@@ -38,57 +314,23 @@
       <div class="form-step">
         <h6>Job Details</h6>
 
-        <label class="form-label fw-semibold">Applying For *</label>
-        <div class="row">
-          <div class="col-6">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="position[]" value="Programming Trainer">
-              <label class="form-check-label">Programming Trainer</label>
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="position[]" value="Robotics Trainer">
-              <label class="form-check-label">Robotics Trainer</label>
-            </div>
-          </div>
-          <div class="col-6 mt-2">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="position[]" value="Abacus Trainer">
-              <label class="form-check-label">Abacus Trainer</label>
-            </div>
-          </div>
-          <div class="col-6 mt-2">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="position[]" value="Tally Trainer">
-              <label class="form-check-label">Tally Trainer</label>
-            </div>
-          </div>
-           <div class="col-6 mt-2">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="position[]" value="Administrator">
-              <label class="form-check-label">Administrator</label>
-            </div>
-          </div>
-        </div>
-        
+      <label class="form-label fw-semibold">Applying For *</label>
+<select class="form-select" name="position" required>
+  <option value="">Select Position</option>
+  <option value="Programming Trainer">Programming Trainer</option>
+  <option value="Robotics Trainer">Robotics Trainer</option>
+  <option value="Abacus Trainer">Abacus Trainer</option>
+  <option value="Tally Trainer">Tally Trainer</option>
+  <option value="Administrator">Administrator</option>
+</select>
+
 <label class="form-label fw-semibold mt-3">Preferred Location *</label>
-<div class="row">
-  <div class="col-6">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox"
-             name="location[]" value="Rajapalayam">
-      <label class="form-check-label">Rajapalayam</label>
-    </div>
-  </div>
-  <div class="col-6">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox"
-             name="location[]" value="Srivilliputhur">
-      <label class="form-check-label">Srivilliputhur</label>
-    </div>
-  </div>
-</div>
+<select class="form-select" name="location" required>
+  <option value="">Select Location</option>
+  <option value="Rajapalayam">Rajapalayam</option>
+  <option value="Srivilliputhur">Srivilliputhur</option>
+</select>
+
 
 
         <div class="d-flex gap-2 mt-3">
@@ -219,27 +461,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
 
-      /* ✅ STEP 2 checkbox validation */
-      if (currentStep === 1) {
-
-        const positionChecked = document.querySelectorAll(
-          'input[name="position[]"]:checked'
-        );
-
-        const locationChecked = document.querySelectorAll(
-          'input[name="location[]"]:checked'
-        );
-
-        if (positionChecked.length === 0) {
-          alert("Please select at least one position");
-          return;
-        }
-
-        if (locationChecked.length === 0) {
-          alert("Please select at least one preferred location");
-          return;
-        }
-      }
+      
 
       /* ✅ MOVE TO NEXT STEP */
       if (currentStep < steps.length - 1) {
